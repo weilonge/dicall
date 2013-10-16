@@ -38,30 +38,9 @@ $(function(){
     selectHelper(searchDic);
     var windowWidth = window.screen.availWidth;
     var windowHeight = window.screen.availHeight;
-    $('body').append('\
-<style> \
-#dicallPanel { \
-    font-family: Arial, sans-serif; \
-    font-size: 14px; \
-    z-index: 10000;\
-    position: fixed;\
-    width:240px;\
-    height: 70%;\
-    left: ' + (windowWidth - 260) + 'px;\
-    top: 5px;\
-    border: 1px solid #ffc940;\
-    background: #efefef;\
-    color: #333333;\
-    overflow:auto;\
-} \
-#dicallPanel ul {\
-    padding-left: 3px;\
-}\
-#dicallPanel ol {\
-    /*padding-left: 3px;*/\
-}\
-</style> \
-<div id="dicallPanel" style=""></div> \
-    ');
-    $('#dicallPanel').hide();
+    $('body').append('<div id="dicallPanel" style=""></div>');
+    $('#dicallPanel').
+        css('left', windowWidth - 360).
+        css('top', windowHeight - 320).
+        hide();
 });

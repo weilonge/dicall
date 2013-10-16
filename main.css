@@ -1,0 +1,20 @@
+#dicallPanel { 
+    font-family: Arial, sans-serif; 
+    font-size: 14px; 
+    z-index: 10000;
+    position: fixed;
+    width:340px;
+    height: 200px;
+    /*left: ' + (windowWidth - 360) + 'px;*/
+    /*top: ' + (windowHeight - 320) + 'px;*/
+    border: 1px solid #ffc940;
+    background: #efefef;
+    color: #333333;
+    overflow:auto;
+} 
+#dicallPanel ul {
+    padding-left: 3px;
+}
+#dicallPanel ol {
+    /*padding-left: 3px;*/
+}
