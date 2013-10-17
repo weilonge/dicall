@@ -5,8 +5,7 @@ function yahooDic(p){
         var dicDom = $('#web > ol', dom);
         console.log(dicDom);
         if( 0 < dicDom.length){
-            $('#dicallPanel').html(dicDom);
-            $('#dicallPanel').show();
+            showDicDialog(dicDom);
         }
     });
 }
@@ -28,19 +27,27 @@ function selectHelper(cb){
         if( selection.toString() !== '' ){
             cb(selection.toString(), e);
         }else{
-            $('#dicallPanel').hide();
+            hideDicDialog();
         }
 	});
+}
+
+function showDicDialog(dicDom){
+    var windowWidth = window.screen.availWidth;
+    var windowHeight = window.screen.availHeight;
+    $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
+    $('#dicallPanel').html(dicDom);
+    $('#dicallPanel').
+        css('left', windowWidth - 360).
+        css('top', windowHeight - 320);
+}
+
+function hideDicDialog(){
+    $('#dicallWrapper').html('');
 }
 
 $(function(){
     console.log('dicall loaded.');
     selectHelper(searchDic);
-    var windowWidth = window.screen.availWidth;
-    var windowHeight = window.screen.availHeight;
-    $('body').append('<div id="dicallPanel" style=""></div>');
-    $('#dicallPanel').
-        css('left', windowWidth - 360).
-        css('top', windowHeight - 320).
-        hide();
+    $('body').append('<div id="dicallWrapper"><div>');
 });
