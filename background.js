@@ -33,13 +33,13 @@ function selectHelper(cb){
 }
 
 function showDicDialog(dicDom){
-    var windowWidth = window.screen.availWidth;
-    var windowHeight = window.screen.availHeight;
+    var windowWidth = document.documentElement.clientWidth;
+    var windowHeight = document.documentElement.clientHeight;
     $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
     $('#dicallPanel').html(dicDom);
     $('#dicallPanel').
-        css('left', windowWidth - 360).
-        css('top', windowHeight - 320);
+        css('left', windowWidth - 345).
+        css('top', windowHeight - 205);
 }
 
 function hideDicDialog(){
