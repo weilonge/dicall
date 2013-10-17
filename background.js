@@ -2,7 +2,7 @@ function yahooDic(p){
     var api = 'http://tw.dictionary.search.yahoo.com/search?p=' + p;
     $.get(api, function(responseText, textStatus, XMLHttpRequest){
         var dom = $.parseHTML( responseText );
-        var dicDom = $('#web > ol > li:first-child', dom);
+        var dicDom = $('#web > ol', dom);
         console.log(dicDom);
         if( 0 < dicDom.length){
             $('#dicallPanel').html(dicDom);
