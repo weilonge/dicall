@@ -8,7 +8,6 @@
 //		"128": "icon128.png"
 //	},
 	"permissions": [
-		"https://secure.flickr.com/",
 		"http://tw.dictionary.search.yahoo.com/",
 		"activeTab"
 	],
