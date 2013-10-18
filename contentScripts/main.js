@@ -39,9 +39,6 @@ function showDicDialog(dicDom){
     $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
     var iframeUrl = chrome.extension.getURL("contentScripts/dicIframe.html");
     $('#dicallPanel').append('<iframe src="' + iframeUrl + '"></iframe>');
-    $('#dicallPanel').
-        css('left', windowWidth - 345).
-        css('top', windowHeight - 205);
 }
 
 function hideDicDialog(){
