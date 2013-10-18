@@ -37,7 +37,7 @@ function showDicDialog(dicDom){
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
     $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
-    var iframeUrl = chrome.extension.getURL("dicIframe.html");
+    var iframeUrl = chrome.extension.getURL("contentScripts/dicIframe.html");
     $('#dicallPanel').append('<iframe src="' + iframeUrl + '"></iframe>');
     $('#dicallPanel').
         css('left', windowWidth - 345).
