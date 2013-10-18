@@ -34,8 +34,6 @@ function showDicDialog(dicDom){
     chrome.runtime.sendMessage({dicDom: dicDomStr}, function(response) {
         console.log(response.status);
     });
-    var windowWidth = document.documentElement.clientWidth;
-    var windowHeight = document.documentElement.clientHeight;
     if( $('#dicallPanel').length < 1 ){
         $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
     }
