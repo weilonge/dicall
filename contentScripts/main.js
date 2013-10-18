@@ -36,9 +36,11 @@ function showDicDialog(dicDom){
     });
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
-    $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
+    if( $('#dicallPanel').length < 1 ){
+        $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
+    }
     var iframeUrl = chrome.extension.getURL("contentScripts/dicIframe.html");
-    $('#dicallPanel').append('<iframe src="' + iframeUrl + '"></iframe>');
+    $('#dicallPanel').html('<iframe src="' + iframeUrl + '"></iframe>');
 }
 
 function hideDicDialog(){
