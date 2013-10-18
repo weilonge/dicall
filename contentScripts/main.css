@@ -7,5 +7,5 @@
 #dicallPanel > iframe {
     width: 330px;
     height: 190px;
-    border: none;
+    border: 1px solid #ffc940;
 }
