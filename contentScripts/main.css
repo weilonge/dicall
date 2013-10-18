@@ -6,6 +6,17 @@
 } 
 #dicallPanel > iframe {
     width: 330px;
-    height: 190px;
+    height: 230px;
     border: 1px solid #ffc940;
+}
+#dicallPanel > div {
+	padding-top: 3px;
+	background-color: #ffc940;
+	text-align: center;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
 }
