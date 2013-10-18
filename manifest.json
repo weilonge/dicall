@@ -23,9 +23,14 @@
 		"run_at": "document_start",
 		"matches": [ "http://*/*", "https://*/*"]
 	}],
-//	"background": {
-//		"scripts": ["background.js"],
-//		"persistent": false
-//	}
+	"background": {
+		"scripts": ["bg.js"],
+		"persistent": false
+	},
+	"web_accessible_resources": [
+		"jquery-1.10.2.min.js",
+		"dicIframe.js",
+		"dicIframe.html"
+	],
 	"manifest_version": 2
 }

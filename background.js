@@ -3,7 +3,6 @@ function yahooDic(p){
     $.get(api, function(responseText, textStatus, XMLHttpRequest){
         var dom = $.parseHTML( responseText );
         var dicDom = $('#web > ol', dom);
-        console.log(dicDom);
         if( 0 < dicDom.length){
             showDicDialog(dicDom);
         }
@@ -11,7 +10,6 @@ function yahooDic(p){
 }
 
 function searchDic(selectedStr, e){
-    console.log('"' + selectedStr + '" was selected at ' + e.pageX + '/' + e.pageY);
     yahooDic(selectedStr);
 }
 
@@ -23,7 +21,6 @@ function selectHelper(cb){
         } else if (document.selection) {
             selection = document.selection.createRange();
         }
-        console.log('mouseup');
         if( selection.toString() !== '' ){
             cb(selection.toString(), e);
         }else{
@@ -33,10 +30,15 @@ function selectHelper(cb){
 }
 
 function showDicDialog(dicDom){
+    var dicDomStr = dicDom.clone().wrap('<div/>').parent().html();
+    chrome.runtime.sendMessage({dicDom: dicDomStr}, function(response) {
+        console.log(response.status);
+    });
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
     $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
-    $('#dicallPanel').html(dicDom);
+    var iframeUrl = chrome.extension.getURL("dicIframe.html");
+    $('#dicallPanel').append('<iframe src="' + iframeUrl + '"></iframe>');
     $('#dicallPanel').
         css('left', windowWidth - 345).
         css('top', windowHeight - 205);
@@ -47,7 +49,6 @@ function hideDicDialog(){
 }
 
 $(function(){
-    console.log('dicall loaded.');
     selectHelper(searchDic);
     $('body').append('<div id="dicallWrapper"><div>');
 });
