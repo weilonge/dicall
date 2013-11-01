@@ -34,11 +34,8 @@ function showDicDialog(dicDom){
     chrome.runtime.sendMessage({dicDom: dicDomStr}, function(response) {
         console.log(response.status);
     });
-    if( $('#dicallPanel').length < 1 ){
-        $('#dicallWrapper').append('<div id="dicallPanel" style=""></div>');
-    }
     var iframeUrl = chrome.extension.getURL("contentScripts/dicIframe.html");
-    $('#dicallPanel').html('<div><b>Dical!</b></div><iframe src="' + iframeUrl + '"></iframe>');
+    $('#dicallWrapper').html('<iframe id="dicallPanel" src="' + iframeUrl + '" scrolling="no"></iframe>');
 }
 
 function hideDicDialog(){

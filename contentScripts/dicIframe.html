@@ -4,12 +4,42 @@
 <title>Dical!</title>
 <style>
 body {
-	border: none;
+	margin: 0;
+	padding: 0;
 	font-family: Arial, sans-serif; 
 	font-size: 14px; 
-	background: #efefef;
 	color: #333333;
 	overflow:auto;
+
+}
+::-webkit-scrollbar {
+	width: 12px;
+	/*height: 10px;*/
+}
+::-webkit-scrollbar-button {
+	background-color: #ffc940;
+	height: 0px;
+}
+::-webkit-scrollbar-track {
+	/*background-color: #999;*/
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-track-piece {
+	background-color: #efefef;
+}
+::-webkit-scrollbar-thumb {
+	height: 50px;
+	background-color: #ffc940;
+	/*border-radius: 3px;*/
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-corner {
+	background-color: #999;
+}
+::-webkit-resizer {
+	background-color: #ffc940;
 }
 ul, ol {
 	padding-left: 20px;
@@ -19,11 +49,34 @@ li.result_cluster {
 	padding-top: 8px;
 	margin-top: 8px;
 }
+.explanation {
+	margin: 4px 0;
+}
+.explanation_group_hd {
+	margin: 4px 0;
+}
+#header {
+	padding-top: 3px;
+	background-color: #ffc940;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+#dicResult {
+	background: #efefef;
+	border: 1px solid #ffc940;
+	border-top: none;
+	height: 209px;
+	overflow-y: scroll;
+}
 </style>
 <script src="../lib/jquery.min.js"></script>
 <script src="dicIframe.js"></script>
 </head>
 <body>
+	<div id="header"><b>Dical!</b></div>
+	<div id="dicResult"></div>
 </body>
 </html>
 

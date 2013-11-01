@@ -1,22 +1,11 @@
-#dicallPanel { 
+iframe#dicallPanel {
     z-index: 10000;
     position: fixed;
     bottom: 10px;
     right: 10px;
-} 
-#dicallPanel > iframe {
     width: 330px;
     height: 230px;
-    border: 1px solid #ffc940;
-}
-#dicallPanel > div {
-	padding-top: 3px;
-	background-color: #ffc940;
-	text-align: center;
-	-webkit-border-top-left-radius: 5px;
-	-moz-border-top-left-radius: 5px;
-	border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-top-right-radius: 5px;
-	border-top-right-radius: 5px;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
