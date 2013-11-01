@@ -47,5 +47,5 @@ function hideDicDialog(){
 
 $(function(){
     selectHelper(searchDic);
-    $('body').append('<div id="dicallWrapper"><div>');
+    $('body').append('<div id="dicallWrapper"></div>');
 });
