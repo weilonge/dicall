@@ -17,7 +17,7 @@
 //		"default_title": "Make this page red"
 //	},
 	"content_scripts": [ {
-		"js": [ "lib/jquery.min.js", "contentScripts/main.js" ],
+		"js": [ "lib/jquery.min.js", "lib/dical.js", "contentScripts/main.js" ],
 		"css": ["contentScripts/main.css"],
 		"run_at": "document_start",
 		"matches": [ "http://*/*", "https://*/*"]
@@ -28,6 +28,7 @@
 	},
 	"web_accessible_resources": [
 		"lib/jquery.min.js",
+		"lib/dical.js",
 		"contentScripts/dicIframe.js",
 		"contentScripts/dicIframe.html"
 	],
