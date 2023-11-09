@@ -1,13 +1,18 @@
-function showDicDialog(dicDom){
-    $('#dicResult').html(dicDom).scrollTop(0);
+function showDicDialog(dicDom) {
+  const dicResult = document.getElementById('dicResult');
+  dicResult.innerHTML = dicDom;
+  // scrollTop(0);
 }
 
-function hideDicDialog(){
+function hideDicDialog() {
 }
 
-$(function(){
-	chrome.runtime.sendMessage({}, function(response) {
-		$('#dicResult').html(response.dicDom);
-	});
-    Dical.init(showDicDialog, hideDicDialog);
-});
+async function main() {
+  chrome.runtime.sendMessage({}, function(response) {
+    const dicResult = document.getElementById('dicResult');
+    dicResult.innerHTML = response.dicDom;
+  });
+
+  await Dical.create(showDicDialog, hideDicDialog);
+}
+main();

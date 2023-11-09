@@ -1,19 +1,27 @@
 function showDicDialog(dicDom){
-    var dicDomStr = dicDom.clone().wrap('<div/>').parent().html();
-    chrome.runtime.sendMessage({dicDom: dicDomStr}, function(response) {
-        if("ok" !== response.status){
-            console.error("ERROR: chrome.runtime.sendMessage");
-        }
-    });
-    var iframeUrl = chrome.extension.getURL("contentScripts/dicIframe.html");
-    $('#dicallWrapper').html('<iframe id="dicallPanel" src="' + iframeUrl + '" scrolling="no"></iframe>');
+  chrome.runtime.sendMessage({ dicDom }, function(response) {
+    if('ok' !== response.status){
+      console.error('ERROR: chrome.runtime.sendMessage');
+    }
+  });
+  const iframeUrl = chrome.runtime.getURL('contentScripts/dicIframe.html');
+
+  const iframe = document.createElement('iframe');
+  iframe.id = 'dicallPanel';
+  iframe.src = iframeUrl;
+  iframe.scrolling = 'no';
+  document.getElementById('dicallWrapper').appendChild(iframe);
 }
 
 function hideDicDialog(){
-    $('#dicallWrapper').html('');
+  document.getElementById('dicallWrapper').innerHTML = '';
 }
 
-$(function(){
-    Dical.init(showDicDialog, hideDicDialog);
-    $('body').append('<div id="dicallWrapper"></div>');
-});
+async function main() {
+  await Dical.create(showDicDialog, hideDicDialog);
+
+  const dicallWrapper = document.createElement('div');
+  dicallWrapper.id = 'dicallWrapper';
+  document.body.appendChild(dicallWrapper);
+}
+main();
