@@ -7,3 +7,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     	sendResponse({dicDom: dicall.dicDom, status: "sent to you"});
     }
 });
+
+self.addEventListener('fetch', (event) => {
+  console.log(event);
+});
