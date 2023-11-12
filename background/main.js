@@ -1,14 +1,13 @@
-let responseText;
+let responseTextPromise;
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   (async () => {
     switch(request.cmd) {
       case 'query-dic': {
-        const response = await fetch(request.apiUrl);
-        responseText = await response.text();
+        responseTextPromise = getApiResponse(request.apiUrl);
         sendResponse({
           cmd: 'query-dic',
           status: 'ok',
-          responseText,
+          responseText: await responseTextPromise,
         });
         break;
       }
@@ -16,7 +15,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({
           cmd: 'ask-dic-result',
           status: 'ok',
-          responseText,
+          responseText: await responseTextPromise,
         });
         break;
       }
@@ -26,6 +25,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   })();
   return true;
 });
+
+async function getApiResponse(apiUrl) {
+  const response = await fetch(apiUrl);
+  return response.text();
+}
 
 self.addEventListener('fetch', (event) => {
   console.log(event);

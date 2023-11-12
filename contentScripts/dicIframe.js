@@ -1,5 +1,5 @@
-function showDicDialog({ responseText }) {
-  appendResult({ responseText });
+async function showDicDialog({ responseTextPromise }) {
+  appendResult({ responseText: await responseTextPromise });
 }
 
 function appendResult({ responseText }) {
