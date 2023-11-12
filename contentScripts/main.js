@@ -1,9 +1,4 @@
-async function showDicDialog({ apiUrl }){
-  const response = await chrome.runtime.sendMessage({ cmd: 'query-dic', apiUrl });
-  if('ok' !== response.status){
-    console.error(`query-dic can not be sent successfully`);
-    return;
-  }
+function showDicDialog({ responseText }){
   const iframe = document.createElement('iframe');
   iframe.id = 'dicallPanel';
   iframe.src = chrome.runtime.getURL('contentScripts/dicIframe.html');
@@ -16,10 +11,13 @@ function hideDicDialog(){
 }
 
 async function main() {
-  await Dical.create(showDicDialog, hideDicDialog);
+  await waitForLoad();
 
   const dicallWrapper = document.createElement('div');
   dicallWrapper.id = 'dicallWrapper';
   document.body.appendChild(dicallWrapper);
+
+  Dical.create(showDicDialog, hideDicDialog);
+
 }
 main();
