@@ -1,14 +1,10 @@
 {
   "name": "Dicall",
   "description": "click a word, show you a translated one.",
-  "version": "2.0",
-  "permissions": [
-    "webRequest",
-    "activeTab"
-  ],
+  "version": "3.0",
+  "permissions": [],
   "host_permissions": [
-    "https://tw.dictionary.search.yahoo.com/*",
-    "<all_urls>"
+    "https://tw.dictionary.search.yahoo.com/*"
   ],
   "content_scripts": [
     {
