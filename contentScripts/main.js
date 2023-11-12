@@ -1,14 +1,12 @@
-function showDicDialog(dicDom){
-  chrome.runtime.sendMessage({ dicDom }, function(response) {
-    if('ok' !== response.status){
-      console.error('ERROR: chrome.runtime.sendMessage');
-    }
-  });
-  const iframeUrl = chrome.runtime.getURL('contentScripts/dicIframe.html');
-
+async function showDicDialog({ apiUrl }){
+  const response = await chrome.runtime.sendMessage({ cmd: 'query-dic', apiUrl });
+  if('ok' !== response.status){
+    console.error(`query-dic can not be sent successfully`);
+    return;
+  }
   const iframe = document.createElement('iframe');
   iframe.id = 'dicallPanel';
-  iframe.src = iframeUrl;
+  iframe.src = chrome.runtime.getURL('contentScripts/dicIframe.html');
   iframe.scrolling = 'no';
   document.getElementById('dicallWrapper').appendChild(iframe);
 }
