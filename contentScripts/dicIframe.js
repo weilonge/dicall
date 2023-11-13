@@ -1,4 +1,6 @@
 async function showDicDialog({ responseTextPromise }) {
+  const contentLoader = document.getElementById('contentLoader');
+  contentLoader.classList.remove('hidden');
   appendResult({ responseText: await responseTextPromise });
 }
 
@@ -10,6 +12,7 @@ function appendResult({ responseText }) {
   dicResult.innerHTML = '';
   dicResult.appendChild(dicDom);
   dicResult.scrollTop = 0;
+  contentLoader.classList.add('hidden');
 }
 
 function hideDicDialog() {

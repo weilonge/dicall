@@ -1,0 +1,201 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+  overflow:auto;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  /*height: 10px;*/
+}
+::-webkit-scrollbar-button {
+  background-color: #ffc940;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  /*background-color: #999;*/
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #efefef;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #ffc940;
+  /*border-radius: 3px;*/
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-corner {
+  background-color: #999;
+}
+::-webkit-resizer {
+  background-color: #ffc940;
+}
+ul, ol {
+  padding-left: 20px;
+}
+li.result_cluster {
+  border-top: 1px solid #333333;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+.explanation {
+  margin: 4px 0;
+}
+.explanation_group_hd {
+  margin: 4px 0;
+}
+.title_term {
+  margin: 6px 0;
+}
+#header {
+  padding-top: 3px;
+  background-color: #ffc940;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  height: 18px;
+}
+#dicResult {
+  background: #efefef;
+  border: 1px solid #ffc940;
+  border-top: none;
+  height: 208px;
+  overflow-y: scroll;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(60, 60, 60,.8), rgba(0, 0, 0, .8));
+  background: -webkit-radial-gradient(rgba(60, 60, 60,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  --circle-size: 1.6;
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: calc(1em * var(--circle-size));
+  height: calc(1em * var(--circle-size));
+  margin-top: calc(-0.5em * var(--circle-size));
+  -webkit-animation: spinner 2120ms infinite linear;
+  -moz-animation: spinner 2120ms infinite linear;
+  -ms-animation: spinner 2120ms infinite linear;
+  -o-animation: spinner 2120ms infinite linear;
+  animation: spinner 2120ms infinite linear;
+  border-radius: calc(0.5em * var(--circle-size));
+  -webkit-box-shadow: rgba(155,255,255, 0.75) 3em 0 0 0, rgba(255,155,255, 0.75) 2.2em 2.2em 0 0, rgba(255,255,155, 0.75) 0 3em 0 0, rgba(255,255,255, 0.75) -2.2em 2.2em 0 0, rgba(155,255,255, 0.75) -3em 0 0 0, rgba(255,155,255, 0.75) -2.2em -2.2em 0 0, rgba(255,255,155, 0.75) 0 -3em 0 0, rgba(255,255,255, 0.75) 2.2em -2.2em 0 0;
+  box-shadow: rgba(155,255,255, 0.75) 3em 0 0 0, rgba(255,155,255, 0.75) 2.2em 2.2em 0 0, rgba(255,255,155, 0.75) 0 3em 0 0, rgba(255,255,255, 0.75) -2.2em 2.2em 0 0, rgba(155,255,255, 0.75) -3em 0 0 0, rgba(255,155,255, 0.75) -2.2em -2.2em 0 0, rgba(255,255,155, 0.75) 0 -3em 0 0, rgba(255,255,255, 0.75) 2.2em -2.2em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}

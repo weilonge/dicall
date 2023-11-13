@@ -2,88 +2,12 @@
 <html>
 <head>
 <title>Dical!</title>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333333;
-  overflow:auto;
-
-}
-::-webkit-scrollbar {
-  width: 12px;
-  /*height: 10px;*/
-}
-::-webkit-scrollbar-button {
-  background-color: #ffc940;
-  height: 0px;
-}
-::-webkit-scrollbar-track {
-  /*background-color: #999;*/
-  border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-::-webkit-scrollbar-track-piece {
-  background-color: #efefef;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  height: 50px;
-  background-color: #ffc940;
-  /*border-radius: 3px;*/
-  border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}
-::-webkit-scrollbar-corner {
-  background-color: #999;
-}
-::-webkit-resizer {
-  background-color: #ffc940;
-}
-ul, ol {
-  padding-left: 20px;
-}
-li.result_cluster {
-  border-top: 1px solid #333333;
-  padding-top: 8px;
-  margin-top: 8px;
-}
-.explanation {
-  margin: 4px 0;
-}
-.explanation_group_hd {
-  margin: 4px 0;
-}
-.title_term {
-  margin: 6px 0;
-}
-#header {
-  padding-top: 3px;
-  background-color: #ffc940;
-  text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  height: 18px;
-}
-#dicResult {
-  background: #efefef;
-  border: 1px solid #ffc940;
-  border-top: none;
-  height: 208px;
-  overflow-y: scroll;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-</style>
+<link rel="stylesheet" href="dicIframe.css">
 <script src="../lib/dical.js"></script>
 <script src="dicIframe.js"></script>
 </head>
 <body>
+  <div id="contentLoader" class="loading">Loading&#8230;</div>
   <div id="header"><b>Dical!</b></div>
   <div id="dicResult"></div>
 </body>

@@ -27,6 +27,7 @@
     {
       "resources": [
         "lib/dical.js",
+        "contentScripts/dicIframe.css",
         "contentScripts/dicIframe.js",
         "contentScripts/dicIframe.html"
       ],
