@@ -41,6 +41,12 @@ body {
 ul, ol {
   padding-left: 20px;
 }
+ol > li {
+  background-color: #ddeeee;
+}
+ol {
+  list-style-type: none;
+}
 li.result_cluster {
   border-top: 1px solid #333333;
   padding-top: 8px;
